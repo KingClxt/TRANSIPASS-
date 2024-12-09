@@ -12,6 +12,7 @@ export const RecentPayment = ({isPortefeuil})=>{
                 <RecentPaymentItem price="10.000" titre="Rechargement via wave" />
                 <RecentPaymentItem price="10.000" titre="Rechargement via wave" />
                 <RecentPaymentItem price="10.000" titre="Rechargement via wave" />
+                
             </div>
         </div>
     )
