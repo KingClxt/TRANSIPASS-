@@ -7,7 +7,7 @@ export const SideBarAdmin = ()=>{
     return (
         <>
             {/* Si nous somme sur un ecran moyen une sidbar sort */}
-            <aside className="min-h-screen bg-[#5D5FEF] pl-1 lg:pl-5 pt-4 hidden sm:block md:w-1/4">
+            <aside className="min-h-screen z-10 bg-[#5D5FEF] pl-1 lg:pl-5 pt-4 hidden sm:block md:w-1/4">
                 <div>
                     <h1 className="md:text-xl mb-9 lg:text-3xl text-white font-bold font-poppins">
                         TRANSIPASS CI
