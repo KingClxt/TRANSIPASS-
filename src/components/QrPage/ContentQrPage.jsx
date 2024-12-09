@@ -13,10 +13,10 @@ export const ContentQrPage = ()=>{
                         <h3 className="font-poppins font-semibold text-lg md:text-sm lg:text-lg">Achat de ticket via Qr</h3>
                         <CreditCard className="text-[#5D5FEF]"/>
                     </div>
-                    <div className="h-full flex justify-center items-center">
+                    <div className="h-full flex flex-col justify-center items-center">
                         <img src="/Qrcode_wikipedia_fr_v2clean.png" className="h-4/5" alt="" />
+                    <p className="text-center my-2 font-semibold text-lg">Scannez pour acheter</p>
                     </div>
-                    <p className="text-center">Scannez pour acheter</p>
                 </CardQrPage>
                 <CardQrPage>
                     <div className="flex justify-between items-center">
