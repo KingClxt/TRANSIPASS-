@@ -18,7 +18,7 @@ export const DashBoardNav = ()=>{
     }
     return (
         <div className="relative">
-            <ul className="flex fixed sm:relative z-20 items-center overflow-x-hidden shadow-md h-[4.5rem] w-full justify-between px-4 bg-white">
+            <ul className="flex fixed sm:relative z-50 items-center overflow-x-hidden shadow-md h-[4.5rem] w-full justify-between px-4 bg-white">
                 <li>
                     <p className="md:text-xl hidden sm:block lg:text-3xl font-bold font-poppins text-gray-900">
                         DASHBOARD
