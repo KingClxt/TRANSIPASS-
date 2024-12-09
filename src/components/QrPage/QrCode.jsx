@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef } from 'react'
 import { Html5Qrcode } from 'html5-qrcode'
+import { useNavigate } from 'react-router-dom'
 
 export default function QRCodeScanner({ onResult }) {
+    const navgate = useNavigate()
   const [error, setError] = useState('')
   const [isScanning, setIsScanning] = useState(true)
   const [lastResult, setLastResult] = useState(null)
@@ -19,7 +21,9 @@ export default function QRCodeScanner({ onResult }) {
 
       // Mettre à jour le dernier résultat
       setLastResult(decodedText)
-
+      console.log("redirection");
+      navgate('/dashboard')
+      
       // Appeler la fonction de callback
       onResult(decodedText)
 
