@@ -1,7 +1,8 @@
 import clsx from "clsx"
+import { NavLink } from "react-router-dom"
 
 
-export const SidbarItem = ({children, active, smallScreen, classname})=>{
+export const SidbarItem = ({children, active, smallScreen, classname, link})=>{
     // Mettre en evidence la page sur laquel nous nous trouvons
     const styleActive = active?
                                 // Sur grand ecran
@@ -15,12 +16,12 @@ export const SidbarItem = ({children, active, smallScreen, classname})=>{
                                 ""
 
     return (
-        <li className={clsx(`flex flex-col sm:flex-row items-center shadow-off relative `, 
+        <NavLink to={link} className={clsx(`flex flex-col sm:flex-row items-center shadow-off relative `, 
                             styleActive?styleActive:'text-white', 
                             classname,
                             smallScreen?"px-1":"gap-3 py-4  pl-3"
                         )}>
             {children}
-        </li> 
+        </NavLink> 
     )
 }

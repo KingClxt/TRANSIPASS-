@@ -5,20 +5,20 @@ import { Link } from "./Link"
 
 export const SidebarSmallScreen = ()=>{
     return (
-            <aside className="h-16  sm:hidden justify-between items-center flex fixed bottom-0 w-full bg-[#5D5FEF]">
-                <SidbarItem smallScreen>
+            <aside className="h-16  sm:hidden justify-between items-center flex  fixed bottom-0 w-full bg-[#5D5FEF]">
+                    <SidbarItem link="/dashboard" smallScreen>
                         <LayoutDashboard/>
-                        <Link link="/dashboard" classname="text-[10px]" text="Dashboard" />
+                        <Link  classname="text-[10px]" text="Dashboard" />
                     </SidbarItem>
 
-                    <SidbarItem smallScreen>
+                    <SidbarItem link="/dashboard/qrcode" smallScreen>
                         <QrCodeIcon />
-                        <Link ink="/dashboard/qrcode" text="Code Qr" classname="" />
+                        <Link  text="Code Qr" classname="" />
                     </SidbarItem>
 
-                    <SidbarItem smallScreen>
+                    <SidbarItem link="/dashboard/rechargement/historique" smallScreen>
                         <HistoryIcon />
-                            <Link link="/dashboard/rechargement/historique" classname="text-[10px]" text="Historique de recharge" />
+                            <Link  classname="text-[10px]" text="Historique de recharge" />
                     </SidbarItem>
 
                     <SidbarItem smallScreen>
@@ -26,14 +26,14 @@ export const SidebarSmallScreen = ()=>{
                             <Link classname="text-[10px]" text="Historique transport" />
                     </SidbarItem>
 
-                    <SidbarItem smallScreen>
+                    <SidbarItem link="/dashboard/portefeuille" smallScreen>
                         <Wallet />
-                        <Link link="/dashboard/portefeuille" classname="text-[10px]" text="Portefeuille" />
+                        <Link  classname="text-[10px]" text="Portefeuille" />
                     </SidbarItem>
 
-                    <SidbarItem smallScreen>
+                    <SidbarItem link="/dashboard/travel" smallScreen>
                             <Caravan />
-                            <Link link="/dashboard/travel" classname="text-[10px]" text="Transport public" />
+                            <Link  classname="text-[10px]" text="Transport public" />
                     </SidbarItem>
             </aside>
         )
