@@ -8,8 +8,8 @@ export const SidbarItem = ({children, active, smallScreen, classname, link})=>{
                                 // Sur grand ecran
                                 `   before:hidden before:sm:block after:hidden after:sm:block
                                     bg-gray-100 rounded-l-full text-black
-                                    before:content-['']  before:shadow-[20px_20px_0_white] before:shadow-gray-100  before:shadow-white  before:absolute before:block before:z-10  before:bg-[#5D5FEF] before:w-10 before:h-10 before:-top-[2.5rem] before:rounded-full  before:right-0
-                                    before:content-['']  after:shadow-[20px_-20px_0_white] after:shadow-gray-100 after:shadow-white  after:absolute after:block after:z-10  after:bg-[#5D5FEF] after:w-10  after:h-10  after:-bottom-[2.5rem] after:rounded-full  after:right-0
+                                    before:content-['']  before:shadow-[20px_20px_0_white] before:shadow-gray-100  before:shadow-gray-100  before:absolute before:block before:z-10  before:bg-[#5D5FEF] before:w-10 before:h-10 before:-top-[2.5rem] before:rounded-full  before:right-0
+                                    before:content-['']  after:shadow-[20px_-20px_0_white] after:shadow-gray-100 after:shadow-gray-100  after:absolute after:block after:z-10  after:bg-[#5D5FEF] after:w-10  after:h-10  after:-bottom-[2.5rem] after:rounded-full  after:right-0
                                 `
                                 :
                                 // Sur petit ecran
