@@ -61,7 +61,7 @@ export const DashBoardNav = ()=>{
                 {/* Affichage du menus */}
                 
                 {
-                    (isOpen && !openNav) &&  <ul className="absolute right-1 rounded text-sm border -bottom-[6rem] w-[11rem] bg-white">
+                    (isOpen && !openNav) &&  <ul className="sm:hidden z-50 absolute right-1 rounded text-sm border -bottom-[6rem] w-[11rem] bg-white">
                     <li className="border-b px-5 py-3 hover:bg-gray-100 cursor-pointer transition-all">Modifier mon profile</li>
                     <li className=" px-5 py-3 hover:bg-gray-100 cursor-pointer transition-all text-red-500">Deconnexion</li>
                 </ul>
@@ -85,7 +85,7 @@ const DropNav = ({toggleMenu, isOpen, openNav})=>{
             exit={{opacity:0, y:-25}}
             initial={{opacity:0, y:-25}}
             animate={{opacity:1, y:0}}
-            className="rounded flex flex-col  fixed w-[90%] top-20 border-2 bg-white">
+            className="rounded z-50 flex flex-col  fixed w-[90%] top-20 border-2 bg-white">
             <li onClick={toggleMenu} className="px-4 py-3 cursor-pointer flex relative items-center gap-3 border-b">
                     <div className="w-10 flex justify-center items-center ring-offset-2 ring-2 ring-gray-400 h-10 bg-gray-600 rounded-full ">
                         <User2Icon />
