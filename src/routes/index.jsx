@@ -8,6 +8,7 @@ import { ContentPortefeuille } from "../components/Portefeuille/ContentPrtefeuil
 import { ContentPublicTravel } from "../components/PublicTravel/ContentPublicTravel";
 import { ContentHistoriqueRecharge } from "../components/HistoriqueRecharge/ContentHistoriqueRecharge";
 import { Index } from "../pages/Index";
+import { ContentHistoriqueTransport } from "../components/HistoriqueTransport/ContentHistoriqueTransport";
 export const routes = [
     {
         path:'/',
@@ -42,6 +43,10 @@ export const routes = [
             {
                 path:'rechargement/historique',
                 element:<ContentHistoriqueRecharge />
+            },
+            {
+                path:'transport/historique',
+                element:<ContentHistoriqueTransport />
             }
         ]
     }

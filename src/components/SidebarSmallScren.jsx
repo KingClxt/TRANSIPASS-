@@ -6,7 +6,7 @@ import { Link } from "./Link"
 export const SidebarSmallScreen = ()=>{
     return (
             <aside className="h-16 z-30 sm:hidden justify-between items-center flex  fixed bottom-0 w-full bg-[#5D5FEF]">
-                    <SidbarItem link="/dashboard" smallScreen>
+                    <SidbarItem  link="/dashboard" smallScreen>
                         <LayoutDashboard/>
                         <Link  classname="text-[10px]" text="Dashboard" />
                     </SidbarItem>

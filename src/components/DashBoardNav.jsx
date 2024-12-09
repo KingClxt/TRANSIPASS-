@@ -5,9 +5,16 @@ import clsx from "clsx"
 import { AnimatePresence, motion } from "motion/react"
 import { div } from "motion/react-client"
 import { SearchInput } from "./SearchInput"
+import { useDispatch } from "react-redux"
+import { Logout } from "../actions/loginActions"
+import { persistor } from "../store"
+import { useNavigate } from "react-router-dom"
+
 
 
 export const DashBoardNav = ()=>{
+    const navigate = useNavigate()
+
     const [isOpen, setOpen] = useState(false)
     const toggleMenu = ()=>{
         setOpen(!isOpen)
@@ -15,6 +22,14 @@ export const DashBoardNav = ()=>{
     const [openNav, setOpenNav] = useState(false)
     const toggleNav = ()=>{
         setOpenNav(!openNav)
+    }
+    const dispatch = useDispatch()
+
+    const logout = async()=>{
+        await persistor.purge()
+        dispatch(Logout)
+        navigate('/')
+        
     }
     return (
         <div className="relative">
@@ -61,9 +76,9 @@ export const DashBoardNav = ()=>{
                 {/* Affichage du menus */}
                 
                 {
-                    (isOpen && !openNav) &&  <ul className="sm:hidden z-50 absolute right-1 rounded text-sm border -bottom-[6rem] w-[11rem] bg-white">
+                    (isOpen && !openNav) && <ul className=" z-50 absolute right-1 rounded text-sm border -bottom-[6rem] w-[11rem] bg-white">
                     <li className="border-b px-5 py-3 hover:bg-gray-100 cursor-pointer transition-all">Modifier mon profile</li>
-                    <li className=" px-5 py-3 hover:bg-gray-100 cursor-pointer transition-all text-red-500">Deconnexion</li>
+                    <li onClick={logout} className=" px-5 py-3 hover:bg-gray-100 cursor-pointer transition-all text-red-500">Deconnexion</li>
                 </ul>
                 }
 

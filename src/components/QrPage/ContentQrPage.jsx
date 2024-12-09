@@ -1,6 +1,7 @@
 import { CreditCard, QrCode, Star, Wallet } from "lucide-react"
 import { CardQrPage } from "./CardQrPage"
 import { Button } from "../Button"
+import { ModalQr } from "./ModaleQr"
 
 
 
@@ -8,16 +9,7 @@ export const ContentQrPage = ()=>{
     return (
         <section className="px-6 mt-14 sm:mt-0 h-full flex items-center ">
             <div className="grid grid-cols-1 w-full sm:grid-cols-3 gap-4 font-poppins">
-                <CardQrPage>
-                    <div className="flex justify-between items-center">
-                        <h3 className="font-poppins font-semibold text-lg md:text-sm lg:text-lg">Achat de ticket via Qr</h3>
-                        <CreditCard className="text-[#5D5FEF]"/>
-                    </div>
-                    <div className="h-full flex flex-col justify-center items-center">
-                        <img src="/Qrcode_wikipedia_fr_v2clean.png" className="h-4/5" alt="" />
-                    <p className="text-center my-2 font-semibold text-lg">Scannez pour acheter</p>
-                    </div>
-                </CardQrPage>
+                <ModalQr />
                 <CardQrPage>
                     <div className="flex justify-between items-center">
                         <p className="font-poppins font-semibold text-lg md:text-sm lg:text-lg">Solde</p>

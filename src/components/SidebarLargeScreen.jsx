@@ -18,27 +18,27 @@ export const SidebarLargeScreen = ()=>{
                         <Link text="Dashboard" />
                     </SidbarItem>
 
-                    <SidbarItem  active={currentPage === "qrcode"}>
+                    <SidbarItem link="/dashboard/qrcode" active={currentPage === "qrcode"}>
                         <QrCodeIcon />
                         <Link link="/dashboard/qrcode" text="Code Qr" />
                     </SidbarItem>
 
-                    <SidbarItem active={currentPage === "rechargement"}>
+                    <SidbarItem link="/dashboard/rechargement/historique" active={currentPage === "rechargement"}>
                         <HistoryIcon />
                             <Link link="/dashboard/rechargement/historique" text="Historique de recharge" />
                     </SidbarItem>
 
-                    <SidbarItem active={currentPage === ""}>
+                    <SidbarItem link="/dashboard/transport/historique" active={currentPage === "transport"}>
                             <CarIcon />
-                            <Link text="Historique de transport" />
+                            <Link link="/dashboard/transport/historique" text="Historique de transport" />
                     </SidbarItem>
 
-                    <SidbarItem active={currentPage === "portefeuille"}>
+                    <SidbarItem link="/dashboard/portefeuille" active={currentPage === "portefeuille"}>
                         <Wallet />
                         <Link link="/dashboard/portefeuille" text="Portefeuille" />
                     </SidbarItem>
 
-                    <SidbarItem active={currentPage === "travel"}>
+                    <SidbarItem link="/dashboard/travel" active={currentPage === "travel"}>
                             <Caravan />
                             <Link link="/dashboard/travel" text="Transport public" />
                     </SidbarItem>
