@@ -23,9 +23,9 @@ export const SidebarLargeScreen = ()=>{
                         <Link link="/dashboard/qrcode" text="Code Qr" />
                     </SidbarItem>
 
-                    <SidbarItem active={currentPage === ""}>
+                    <SidbarItem active={currentPage === "rechargement"}>
                         <HistoryIcon />
-                            <Link text="Historique de recharge" />
+                            <Link link="/dashboard/rechargement/historique" text="Historique de recharge" />
                     </SidbarItem>
 
                     <SidbarItem active={currentPage === ""}>

@@ -6,10 +6,12 @@ import { ContentQrPage } from "../components/QrPage/ContentQrPage";
 import { DashboardBodyClient } from "../components/Dashboard/DashboardBodyClient"
 import { ContentPortefeuille } from "../components/Portefeuille/ContentPrtefeuille";
 import { ContentPublicTravel } from "../components/PublicTravel/ContentPublicTravel";
+import { ContentHistoriqueRecharge } from "../components/HistoriqueRecharge/ContentHistoriqueRecharge";
+import { Index } from "../pages/Index";
 export const routes = [
     {
         path:'/',
-        element:<p>Bienvenue tous le monde</p>
+        element:<Index />
     },
     {
         path:'/signin',
@@ -36,6 +38,10 @@ export const routes = [
             {
                 path:'travel',
                 element:<ContentPublicTravel />
+            },
+            {
+                path:'rechargement/historique',
+                element:<ContentHistoriqueRecharge />
             }
         ]
     }

@@ -7,7 +7,7 @@ import { RecentPayment } from "./RecentPayment"
 
 export const DashboardBodyClient = ()=>{
     return (
-        <section className="container mx-auto px-10 pt-16 sm:py-0">
+        <section className="container mx-auto  px-10 pt-16 sm:py-0">
             <div className="grid grid-cols-1 sm:grid-cols-3 my-10 gap-3">
 
                 <CardInformation color="violet">

@@ -6,7 +6,7 @@ import { Button } from "../Button"
 
 export const ContentQrPage = ()=>{
     return (
-        <section className="px-6 mt-14 sm:mt-0 h-full flex items-center">
+        <section className="px-6 mt-14 sm:mt-0 h-full flex items-center ">
             <div className="grid grid-cols-1 w-full sm:grid-cols-3 gap-4 font-poppins">
                 <CardQrPage>
                     <div className="flex justify-between items-center">

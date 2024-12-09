@@ -8,17 +8,17 @@ export const SidebarSmallScreen = ()=>{
             <aside className="h-16  sm:hidden justify-between items-center flex fixed bottom-0 w-full bg-[#5D5FEF]">
                 <SidbarItem smallScreen>
                         <LayoutDashboard/>
-                        <Link classname="text-[10px]" text="Dashboard" />
+                        <Link link="/dashboard" classname="text-[10px]" text="Dashboard" />
                     </SidbarItem>
 
                     <SidbarItem smallScreen>
                         <QrCodeIcon />
-                        <Link text="Code Qr" classname="" />
+                        <Link ink="/dashboard/qrcode" text="Code Qr" classname="" />
                     </SidbarItem>
 
                     <SidbarItem smallScreen>
                         <HistoryIcon />
-                            <Link classname="text-[10px]" text="Historique de recharge" />
+                            <Link link="/dashboard/rechargement/historique" classname="text-[10px]" text="Historique de recharge" />
                     </SidbarItem>
 
                     <SidbarItem smallScreen>
@@ -28,12 +28,12 @@ export const SidebarSmallScreen = ()=>{
 
                     <SidbarItem smallScreen>
                         <Wallet />
-                        <Link classname="text-[10px]" text="Portefeuille" />
+                        <Link link="/dashboard/portefeuille" classname="text-[10px]" text="Portefeuille" />
                     </SidbarItem>
 
                     <SidbarItem smallScreen>
                             <Caravan />
-                            <Link classname="text-[10px]" text="Transport public" />
+                            <Link link="/dashboard/travel" classname="text-[10px]" text="Transport public" />
                     </SidbarItem>
             </aside>
         )

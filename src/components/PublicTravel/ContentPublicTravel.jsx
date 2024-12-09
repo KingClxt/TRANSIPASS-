@@ -18,7 +18,7 @@ export const ContentPublicTravel = ()=>{
                 </Button> */}
             </div>
             <CarteBox />
-            <RecentTrajets />
+            <RecentTrajets text="Trajet Recent" />
         </section>
     )
 }
