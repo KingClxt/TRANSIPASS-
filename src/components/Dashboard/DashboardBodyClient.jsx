@@ -6,13 +6,18 @@ import { useSelector } from "react-redux"
 import { useQuery } from "@tanstack/react-query"
 import { getRecentPayment } from "../../api/endpoints/payment"
 import { getRecentTrajet } from "../../api/endpoints/travel"
+import { useNavigate } from "react-router-dom"
 
 
 
 export const DashboardBodyClient = ()=>{
+    const navigate = useNavigate()
     // RECUPERATION DE L'UTILISATEUR ET DU TOKEN
-    const {id, solde, pointsFidelite} = useSelector(({userReducer})=>userReducer.usager)
     const token = useSelector(({userReducer})=>userReducer.token)
+    if(!token){
+        navigate('/signin')
+    }
+    const {id, solde, pointsFidelite} = useSelector(({userReducer})=>userReducer.usager)
 
     // FONTION POUR FETCH LES VOYAGES
     const {data:payments, isLoading:paymentLoading, isError:paymentError} = useQuery({

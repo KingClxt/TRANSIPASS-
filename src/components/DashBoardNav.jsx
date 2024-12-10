@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom"
 
 export const DashBoardNav = ()=>{
     const navigate = useNavigate()
-
+    
     const [isOpen, setOpen] = useState(false)
     const toggleMenu = ()=>{
         setOpen(!isOpen)
@@ -30,7 +30,6 @@ export const DashBoardNav = ()=>{
         dispatch(Logout)
         navigate('/')
     }
-
     // RECUPERATION DE L'UTILISATEUR
     const {nom, prenom} = useSelector(({userReducer})=>userReducer.usager)
     return (
