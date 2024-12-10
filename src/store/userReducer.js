@@ -9,6 +9,15 @@ export default function userReducer(state=user, action){
             }
         case 'LOGOUT':
             return {}   
+        case 'INCREASE_SOLDE':
+            const newUsager = {
+                ...state.usager,
+                solde:action.payload
+            }
+            return{
+                ...state,
+                usager:newUsager
+            }
         default:
             return state
     }

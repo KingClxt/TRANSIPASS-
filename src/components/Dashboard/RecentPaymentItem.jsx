@@ -1,6 +1,8 @@
 
 
-export const RecentPaymentItem = ({titre, price})=>{
+export const RecentPaymentItem = ({titre, price, date})=>{
+    // let myDate = date.getDay()
+    
     return (
         <div className="border-b last:border-b-0 bg-white rounded-b flex justify-between items-center px-3">
             <div className="py-3 flex items-center gap-2">
@@ -12,7 +14,7 @@ export const RecentPaymentItem = ({titre, price})=>{
             </div>
             <div>
                 <p className="font-poppins font-bold">
-                     23/12/2024
+                     {/* {myDate} */}
                 </p>
                 
             </div>

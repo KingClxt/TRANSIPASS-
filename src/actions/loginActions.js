@@ -10,3 +10,9 @@ export const Logout = ()=>{
         type:'LOGOUT'
     })
 }
+export const Rechargement = (solde)=>{
+    return ({
+        type:"INCREASE_SOLDE",
+        payload:solde
+    })
+}

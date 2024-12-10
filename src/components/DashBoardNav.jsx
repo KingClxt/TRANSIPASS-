@@ -5,7 +5,7 @@ import clsx from "clsx"
 import { AnimatePresence, motion } from "motion/react"
 import { div } from "motion/react-client"
 import { SearchInput } from "./SearchInput"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Logout } from "../actions/loginActions"
 import { persistor } from "../store"
 import { useNavigate } from "react-router-dom"
@@ -29,8 +29,10 @@ export const DashBoardNav = ()=>{
         await persistor.purge()
         dispatch(Logout)
         navigate('/')
-        
     }
+
+    // RECUPERATION DE L'UTILISATEUR
+    const {nom, prenom} = useSelector(({userReducer})=>userReducer.usager)
     return (
         <div className="relative">
             <ul className="flex fixed sm:relative z-50 items-center overflow-x-hidden shadow-md h-[4.5rem] w-full justify-between px-4 bg-white">
@@ -49,7 +51,7 @@ export const DashBoardNav = ()=>{
                         <div className="w-10 ring-offset-2 ring-2 ring-gray-400 h-10 bg-gray-600 rounded-full">
                         </div>
                         <p>
-                            KingClxt
+                            {`${nom} ${prenom}`}
                         </p>
                     </li>
                 </div>

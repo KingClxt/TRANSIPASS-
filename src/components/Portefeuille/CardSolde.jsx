@@ -3,7 +3,7 @@ import { Button } from "../Button"
 
 
 
-export const CardSolde = ()=>{
+export const CardSolde = ({solde})=>{
     return (
         <div className="font-poppins flex flex-col gap-3 shadow-lg px-6 py-9 text-white bg-gradient-to-l from-violet-700 to-[#5D5FEF] rounded">
             <div className="flex justify-between">
@@ -11,7 +11,7 @@ export const CardSolde = ()=>{
                 <Wallet />
             </div>
             <p className="font-bold my-2 text-xl sm:text-4xl">
-                20.000 FCFA
+                {solde} FCFA
             </p>
             <Button classname="bg-violet-400 flex justify-center items-center">
                 <Plus /> Recharger mon compte

@@ -37,7 +37,7 @@ export const CarteBox = () => {
     }
 
     return (
-        <div className="h-[20rem] z-30">
+        <div className="h-[20rem] rounded-lg overflow-hidden z-30">
             <MapContainer 
                 center={position} 
                 zoom={13} 
