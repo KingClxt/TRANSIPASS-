@@ -88,7 +88,7 @@ export const DashBoardNav = ()=>{
                 <div className="flex justify-center">
                     <AnimatePresence>
                     {
-                        openNav && <DropNav openNav={openNav} toggleMenu={toggleMenu} isOpen={isOpen} />
+                        openNav && <DropNav logout={logout} openNav={openNav} toggleMenu={toggleMenu} isOpen={isOpen} />
                     }
                     </AnimatePresence>
                 </div>
@@ -96,7 +96,7 @@ export const DashBoardNav = ()=>{
     )   
 }
 
-const DropNav = ({toggleMenu, isOpen, openNav})=>{
+const DropNav = ({toggleMenu, isOpen, openNav, logout})=>{
     return (
         <motion.ul 
             exit={{opacity:0, y:-25}}
@@ -113,7 +113,7 @@ const DropNav = ({toggleMenu, isOpen, openNav})=>{
                    
             </li>
             <li className="border-b px-5 py-3  cursor-pointer transition-all">Modifier mon profile</li>
-            <li className="border-b px-5 py-3  cursor-pointer transition-all text-red-500">Deconnexion</li>
+            <li onClick={logout} className="border-b px-5 py-3  cursor-pointer transition-all text-red-500">Deconnexion</li>
             <SearchInput />
                                 
         </motion.ul>
