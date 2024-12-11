@@ -26,11 +26,11 @@ export default function QRCodeScanner({ onResult }) {
       }
 
       // Mettre à jour le dernier résultat et l'afficher clairement
-      const {data, isLoading} = useQuery({
-        queryKey:["trajet", decodedText],
-        queryFn:()=>getTrajetById(decodedText)
-      })
-      setTrajet(isLoading?data:null)
+      // const {data, isLoading} = useQuery({
+      //   queryKey:["trajet", decodedText],
+      //   queryFn:()=>getTrajetById(decodedText)
+      // })
+      // setTrajet(isLoading?data:null)
       setShowValidation(decodedText && true)
       // Appeler la fonction de callback
       onResult(decodedText)
