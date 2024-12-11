@@ -168,7 +168,7 @@ export default function QRCodeScanner({ onResult }) {
           )}
         </div>
       </div>
-      <Modal isOpen={false}  />
+      <Modal isOpen={showValidation}  />
     </>
   )
 }
