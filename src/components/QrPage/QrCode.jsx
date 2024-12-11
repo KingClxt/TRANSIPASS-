@@ -3,10 +3,16 @@ import { Html5Qrcode } from 'html5-qrcode'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
-import { getTrajetById } from '../../api/endpoints/trajet'
+import { getTrajet, getTrajetById } from '../../api/endpoints/trajet'
 
 export default function QRCodeScanner({ onResult }) {
 
+  // Mettre à jour le dernier résultat et l'afficher clairement
+      const {data, isLoading} = useQuery({
+        queryKey:["trajet"],
+        queryFn:()=>getTrajet()
+      })
+  
   const [trajet, setTrajet] = useState(null)
   const navgate = useNavigate()
   const [showValidation, setShowValidation] = useState(false)
@@ -25,13 +31,9 @@ export default function QRCodeScanner({ onResult }) {
         setIsScanning(false)
       }
 
-      // Mettre à jour le dernier résultat et l'afficher clairement
-      // const {data, isLoading} = useQuery({
-      //   queryKey:["trajet", decodedText],
-      //   queryFn:()=>getTrajetById(decodedText)
-      // })
-      // setTrajet(isLoading?data:null)
       setShowValidation(decodedText && true)
+      setTrajet(data.trajets.find(trajet=>trajet._id === decodedText))
+
       // Appeler la fonction de callback
       onResult(decodedText)
 
@@ -168,7 +170,7 @@ export default function QRCodeScanner({ onResult }) {
           )}
         </div>
       </div>
-      <Modal isOpen={showValidation}  />
+      <Modal isOpen={showValidation} ticketInfo={!isLoading && data.trajets}  />
     </>
   )
 }
@@ -185,12 +187,12 @@ const Modal = ({ isOpen, onClose, onValidate, ticketInfo }) => {
         <div className="space-y-4">
           <div>
             <p className="text-gray-600">Gare de départ:</p>
-            <p className="font-semibold">{ticketInfo?.departureStation}</p>
+            <p className="font-semibold">{ticketInfo?.gareDepart.nom}</p>
           </div>
           
           <div>
             <p className="text-gray-600">Gare d'arrivée:</p>
-            <p className="font-semibold">{ticketInfo?.arrivalStation}</p>
+            <p className="font-semibold">{ticketInfo?.gareArrivee.nom}</p>
           </div>
           
           <div>
