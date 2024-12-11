@@ -185,13 +185,10 @@ const Modal = ({ isOpen, onClose, onCloseQr, ticketInfo }) => {
   const mutation = useMutation({
     mutationFn:(data)=>postTicket(data, token),
     onSuccess:(data)=>{
-      onClose()
-      dispatch(Rechargement(data.solde))
-      onCloseQr()
-      navigate('/dashboard')
-    },
-    onError:()=>{
-      navigate('/dashboard/portefeuille')
+      // onClose()
+      // dispatch(Rechargement(data.solde))
+      // onCloseQr()
+      navigate('/dashboard/')
     }
   })
   const handleSubmit = (e)=>{
