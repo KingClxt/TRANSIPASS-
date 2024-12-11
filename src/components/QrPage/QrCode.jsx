@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import { getToken, getUser } from '../../selectors/userSelectors'
 import { postTicket } from '../../api/endpoints/ticket'
 import { Loader } from '../Loader'
+import { Rechargement } from '../../actions/loginActions'
 
 export default function QRCodeScanner({ onResult }) {
 
