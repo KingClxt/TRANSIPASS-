@@ -5,7 +5,6 @@ import axios from 'axios'
 
 export default function QRCodeScanner({ onResult }) {
     const navgate = useNavigate()
-  const [url, setUrl] = useState(null)
   const [error, setError] = useState('')
   const [isScanning, setIsScanning] = useState(true)
   const [lastResult, setLastResult] = useState(null)
@@ -22,9 +21,7 @@ export default function QRCodeScanner({ onResult }) {
       }
 
       // Mettre à jour le dernier résultat et l'afficher clairement
-      console.log("QR Code scanné:", decodedText) // Ajout du log pour débuggage
       setLastResult(decodedText)
-      setUrl(decodedText) // Ajout pour stocker l'URL
       
       // Appeler la fonction de callback
       onResult(decodedText)
