@@ -2,8 +2,12 @@ import { useEffect, useState, useRef } from 'react'
 import { Html5Qrcode } from 'html5-qrcode'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { getTrajet, getTrajetById } from '../../api/endpoints/trajet'
+import { useSelector } from 'react-redux'
+import { getToken, getUser } from '../../selectors/userSelectors'
+import { postTicket } from '../../api/endpoints/ticket'
+import { Loader } from 'lucide-react'
 
 export default function QRCodeScanner({ onResult }) {
 
@@ -170,7 +174,7 @@ export default function QRCodeScanner({ onResult }) {
         </div>
       </div>
       {
-        !isLoading && <Modal isOpen={showValidation} ticketInfo={data.trajets.find(trajet=>trajet._id === lastResult)}  />
+        !isLoading && <Modal isOpen={showValidation} onClose={()=>setShowValidation(false)} ticketInfo={data.trajets.find(trajet=>trajet._id === lastResult)}  />
       }
       
     </>
@@ -180,44 +184,68 @@ export default function QRCodeScanner({ onResult }) {
 
 
 const Modal = ({ isOpen, onClose, onValidate, ticketInfo }) => {
+  const navigate = useNavigate()
+  const token = useSelector(getToken)
+  const {id} = useSelector(getUser)
+  const mutation = useMutation({
+    mutationFn:(data)=>postTicket(data, token),
+    onSuccess:(data)=>{
+      onClose()
+      navigate('/dashboard')
+    }
+  })
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    const data = {
+      usagerId:id,
+      trajetId:ticketInfo._id
+    }
+    mutation.mutate(data)
+  }
   if (!isOpen) return null;
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-xl">
-        <h3 className="text-xl font-bold mb-4">Validation du trajet</h3>
-        
-        <div className="space-y-4">
-          <div>
-            <p className="text-gray-600">Gare de départ:</p>
-            <p className="font-semibold">{ticketInfo?.gareDepart.nom}</p>
-          </div>
+    <>
+    
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="bg-white rounded-lg p-6 w-full max-w-xl">
+          <h3 className="text-xl font-bold mb-4">Validation la course</h3>
           
-          <div>
-            <p className="text-gray-600">Gare d'arrivée:</p>
-            <p className="font-semibold">{ticketInfo?.gareArrivee.nom}</p>
+          <div className="space-y-4">
+            <div>
+              <p className="text-gray-600">Gare de départ:</p>
+              <p className="font-semibold">{ticketInfo?.gareDepart.nom}</p>
+            </div>
+            
+            <div>
+              <p className="text-gray-600">Gare d'arrivée:</p>
+              <p className="font-semibold">{ticketInfo?.gareArrivee.nom}</p>
+            </div>
+            
+            <div>
+              <p className="text-gray-600">Prix:</p>
+              <p className="font-semibold">{ticketInfo?.cout}€</p>
+            </div>
           </div>
-          
-          <div>
-            <p className="text-gray-600">Prix:</p>
-            <p className="font-semibold">€</p>
-          </div>
-        </div>
 
-        <div className="mt-6 flex space-x-4">
-          <button
-            onClick={onClose}
-            className="flex-1 px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300"
-          >
-            Annuler
-          </button>
-          <button
-            onClick={onValidate}
-            className="flex-1 px-4 py-2 bg-[#5D5FEF] text-white rounded-lg hover:bg-[#4e50df]"
-          >
-            Valider
-          </button>
+          <div className="mt-6 flex space-x-4">
+            <button
+              onClick={onClose}
+              className="flex-1 px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300"
+            >
+              Annuler
+            </button>
+            <button
+              onClick={handleSubmit}
+              className="flex-1 px-4 py-2 bg-[#5D5FEF] text-white rounded-lg hover:bg-[#4e50df]"
+            >
+              Valider
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+      {
+        mutation.isPending && <Loader />
+      }
+    </>
   );
 };
