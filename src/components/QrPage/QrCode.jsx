@@ -32,8 +32,7 @@ export default function QRCodeScanner({ onResult }) {
       }
 
       setShowValidation(decodedText && true)
-      setTrajet(!isLoading && data.trajets.find(trajet=>trajet._id === decodedText))
-
+      setLastResult(decodedText)
       // Appeler la fonction de callback
       onResult(decodedText)
 
@@ -171,7 +170,7 @@ export default function QRCodeScanner({ onResult }) {
         </div>
       </div>
       {
-        !isLoading && <Modal isOpen={showValidation} ticketInfo={trajet}  />
+        !isLoading && <Modal isOpen={showValidation} ticketInfo={data.trajets.find(trajet=>trajet._id === lastResult)}  />
       }
       
     </>
