@@ -5,4 +5,4 @@ export const postTicket = (data, token)=>axios.post("https://transitpassci-elb3s
     headers:{
         'Authorization':`Bearer ${token}`
     }
-})
+}).then(res=>res.data)

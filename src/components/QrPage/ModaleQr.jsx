@@ -10,7 +10,6 @@ export const ModalQr = ()=>{
         console.log('Code QR scanné :', result)  
         // Traitez le résultat comme vous le souhaitez  
       }  
-      console.log(isOpen);
       
     return (
         <>
@@ -42,7 +41,7 @@ export const ModalQr = ()=>{
                             </div>
                             <div className="aspect-square bg-gray-100 mb-4">
                                 <div>
-                                    <QRScanner onResult={handleQRResult} /> 
+                                    <QRScanner onClose={()=>setIsModalOpen(false)} onResult={handleQRResult} /> 
                                 </div>
                             </div>
                             <Button 

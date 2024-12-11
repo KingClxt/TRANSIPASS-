@@ -10,7 +10,7 @@ import { postTicket } from '../../api/endpoints/ticket'
 import { Loader } from '../Loader'
 import { Rechargement } from '../../actions/loginActions'
 
-export default function QRCodeScanner({ onResult }) {
+export default function QRCodeScanner({ onResult, onClose }) {
 
   // Mettre à jour le dernier résultat et l'afficher clairement
       const {data, isLoading} = useQuery({
@@ -150,14 +150,8 @@ export default function QRCodeScanner({ onResult }) {
           {!isScanning && lastResult && (
             <div className="mt-4 text-center">
               <p className="text-green-600 font-semibold mb-2">
-                Code scanné avec succès !
+                Transaction terminer !
               </p>
-              <div className="bg-gray-100 p-4 rounded-lg mb-4">
-                <p className="text-gray-700 break-all">
-                  {lastResult}
-                </p>
-                
-              </div>
               <button
                 onClick={restartScanner}
                 className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
@@ -175,7 +169,7 @@ export default function QRCodeScanner({ onResult }) {
         </div>
       </div>
       {
-        !isLoading && <Modal isOpen={showValidation} onClose={()=>setShowValidation(false)} ticketInfo={data.trajets.find(trajet=>trajet._id === lastResult)}  />
+        !isLoading && <Modal onCloseQr={onClose} isOpen={showValidation} onClose={()=>setShowValidation(false)} ticketInfo={data.trajets.find(trajet=>trajet._id === lastResult)}  />
       }
       
     </>
@@ -184,7 +178,7 @@ export default function QRCodeScanner({ onResult }) {
 
 
 
-const Modal = ({ isOpen, onClose, onValidate, ticketInfo }) => {
+const Modal = ({ isOpen, onClose, onCloseQr, ticketInfo }) => {
   const navigate = useNavigate()
   const token = useSelector(getToken)
   const {id} = useSelector(getUser)
@@ -193,6 +187,7 @@ const Modal = ({ isOpen, onClose, onValidate, ticketInfo }) => {
     onSuccess:(data)=>{
       onClose()
       dispatch(Rechargement(data.solde))
+      onCloseQr()
       navigate('/dashboard')
     }
   })
