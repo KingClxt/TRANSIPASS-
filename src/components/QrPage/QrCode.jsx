@@ -12,7 +12,7 @@ export default function QRCodeScanner({ onResult }) {
         queryKey:["trajet"],
         queryFn:()=>getTrajet()
       })
-  
+      
   const [trajet, setTrajet] = useState(null)
   const navgate = useNavigate()
   const [showValidation, setShowValidation] = useState(false)
@@ -32,7 +32,7 @@ export default function QRCodeScanner({ onResult }) {
       }
 
       setShowValidation(decodedText && true)
-      setTrajet(data.trajets.find(trajet=>trajet._id === decodedText))
+      setTrajet(!isLoading && data.trajets.find(trajet=>trajet._id === decodedText))
 
       // Appeler la fonction de callback
       onResult(decodedText)
@@ -197,7 +197,7 @@ const Modal = ({ isOpen, onClose, onValidate, ticketInfo }) => {
           
           <div>
             <p className="text-gray-600">Prix:</p>
-            <p className="font-semibold">{ticketInfo?.price}€</p>
+            <p className="font-semibold">€</p>
           </div>
         </div>
 
