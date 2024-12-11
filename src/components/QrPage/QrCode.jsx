@@ -170,7 +170,10 @@ export default function QRCodeScanner({ onResult }) {
           )}
         </div>
       </div>
-      <Modal isOpen={showValidation} ticketInfo={!isLoading && trajet}  />
+      {
+        !isLoading && <Modal isOpen={showValidation} ticketInfo={trajet}  />
+      }
+      
     </>
   )
 }
