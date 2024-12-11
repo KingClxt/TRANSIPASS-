@@ -139,16 +139,7 @@ export default function QRCodeScanner({ onResult }) {
               <p className="text-gray-700 break-all">
                 {lastResult}
               </p>
-              {url && (
-                <a 
-                  href={url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:text-blue-700 underline mt-2 inline-block"
-                >
-                  Ouvrir le lien
-                </a>
-              )}
+              
             </div>
             <button
               onClick={restartScanner}
