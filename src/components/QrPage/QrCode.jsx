@@ -1,9 +1,11 @@
 import { useEffect, useState, useRef } from 'react'
 import { Html5Qrcode } from 'html5-qrcode'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export default function QRCodeScanner({ onResult }) {
     const navgate = useNavigate()
+  const [url, setUrl] = useState(null)
   const [error, setError] = useState('')
   const [isScanning, setIsScanning] = useState(true)
   const [lastResult, setLastResult] = useState(null)
@@ -19,9 +21,10 @@ export default function QRCodeScanner({ onResult }) {
         setIsScanning(false)
       }
 
-      // Mettre à jour le dernier résultat
+      // Mettre à jour le dernier résultat et l'afficher clairement
+      console.log("QR Code scanné:", decodedText) // Ajout du log pour débuggage
       setLastResult(decodedText)
-      
+      setUrl(decodedText) // Ajout pour stocker l'URL
       
       // Appeler la fonction de callback
       onResult(decodedText)
@@ -135,9 +138,21 @@ export default function QRCodeScanner({ onResult }) {
             <p className="text-green-600 font-semibold mb-2">
               Code scanné avec succès !
             </p>
-            <p className="text-gray-700 mb-4">
-              Résultat : {lastResult}
-            </p>
+            <div className="bg-gray-100 p-4 rounded-lg mb-4">
+              <p className="text-gray-700 break-all">
+                {lastResult}
+              </p>
+              {url && (
+                <a 
+                  href={url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-700 underline mt-2 inline-block"
+                >
+                  Ouvrir le lien
+                </a>
+              )}
+            </div>
             <button
               onClick={restartScanner}
               className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
