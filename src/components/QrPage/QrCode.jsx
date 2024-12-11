@@ -220,7 +220,7 @@ const Modal = ({ isOpen, onClose, onCloseQr, ticketInfo }) => {
             
             <div>
               <p className="text-gray-600">Prix:</p>
-              <p className="font-semibold">{ticketInfo?.cout}€</p>
+              <p className="font-semibold">{ticketInfo?.cout} FCFA</p>
             </div>
           </div>
 
