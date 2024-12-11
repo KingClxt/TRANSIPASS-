@@ -5,7 +5,8 @@ export default function userReducer(state=user, action){
             return {
                 ...state,
                 token:action.payload.token,
-                usager:action.payload.usager
+                usager:action.payload.usager,
+                role:''
             }
         case 'LOGOUT':
             return {}   
@@ -17,6 +18,13 @@ export default function userReducer(state=user, action){
             return{
                 ...state,
                 usager:newUsager
+            }
+        case 'LOGINADMIN':
+            return {
+                ...state,
+                token:action.payload.token,
+                usager:action.payload.usager,
+                role:'admin'
             }
         default:
             return state

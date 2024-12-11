@@ -51,7 +51,7 @@ export const ModalRecharge = ({ isOpen, onClose, handlePayment }) => {
                             type="submit"
                             classname="bg-[#5D5FEF] hover:bg-[#3b3edf]"
                         >
-                            Confirmer le paiement
+                            Confirmer
                         </Button>
                     </div>
                 </form>

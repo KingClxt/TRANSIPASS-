@@ -16,3 +16,9 @@ export const Rechargement = (solde)=>{
         payload:solde
     })
 }
+export const LoginAdmin = (data)=>{
+    return ({
+        type:'LOGINADMIN',
+        payload:{token:data.token, usager:data.admin}
+    })
+}

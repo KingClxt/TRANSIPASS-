@@ -9,6 +9,11 @@ import { ContentPublicTravel } from "../components/PublicTravel/ContentPublicTra
 import { ContentHistoriqueRecharge } from "../components/HistoriqueRecharge/ContentHistoriqueRecharge";
 import { Index } from "../pages/Index";
 import { ContentHistoriqueTransport } from "../components/HistoriqueTransport/ContentHistoriqueTransport";
+import AjoutGares from "../components/Gestion gar/AjoutGares";
+import { ConnexionAdmin } from "../pages/ConnexionAdmin";
+import Verification from "../components/Verification/Verification";
+import Trajet from "../components/trajets/Trajet";
+import Arret from "../components/Arret/Arret";
 export const routes = [
     {
         path:'/',
@@ -17,6 +22,10 @@ export const routes = [
     {
         path:'/signin',
         element:<Connexion/>
+    },
+    {
+        path:'/signinAdmin',
+        element:<ConnexionAdmin/>
     },
     {
         path:'/signup',
@@ -47,6 +56,22 @@ export const routes = [
             {
                 path:'transport/historique',
                 element:<ContentHistoriqueTransport />
+            },
+            {
+                path:'gars',
+                element:<AjoutGares />
+            },
+            {
+                path:'verification',
+                element:<Verification />
+            },
+            {
+                path:'trajet',
+                element:<Trajet />
+            },
+            {
+                path:'arret',
+                element:<Arret />
             }
         ]
     }

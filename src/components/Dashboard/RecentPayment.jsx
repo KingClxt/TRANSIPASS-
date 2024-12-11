@@ -6,17 +6,17 @@ export const RecentPayment = ({isPortefeuil, payments, isLoading, isError, limit
     if(!isLoading){
         console.log(payments);
     }
-    const paymentsList = limit && !isLoading ? payments.slice(0,limit):payments
+    const paymentsList = limit && !isLoading ? payments?.slice(0,limit):payments
     return (
         <div className={`border shadow h-full w-full text-slate-800 ${isPortefeuil?"":"sm:w-1/3"}`}>
             <h2 className="py-4 px-3 rounded-t bg-white font-bold font-poppins border-b">
                 Recent Payment
             </h2>
             {
-                isError && 
+                isError ?
                             <div className="text-center py-5 font-semibold">
                                 Aucune recharge pour le moment
-                            </div>
+                            </div>:null
             }
             {
                 isLoading 

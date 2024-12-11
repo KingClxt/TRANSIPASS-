@@ -6,6 +6,7 @@ import { RecentTrajets } from "./RecentTrajets"
 import { getToken, getUser } from "../../selectors/userSelectors"
 import { useQuery } from "@tanstack/react-query"
 import { getRecentPayment } from "../../api/endpoints/payment"
+import { getRecentTrajet } from "../../api/endpoints/travel"
 
 
 
@@ -17,8 +18,8 @@ export const ContentPublicTravel = ()=>{
 
     // FETCH DES TRAJET
     const {data, isLoading, isError} = useQuery({
-        queryKey:['payment', id],
-        queryFn:()=>getRecentPayment(id, token)
+        queryKey:['trajet', id],
+        queryFn:()=>getRecentTrajet(id, token)
     })
     return (
         <section className="px-5 sm:px-10 pt-20 sm:pt-0 mt-5 flex flex-col gap-5">

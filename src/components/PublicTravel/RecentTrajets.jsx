@@ -16,7 +16,7 @@ export const RecentTrajets = ({text, payments, isLoading, isError})=>{
                         ?
                         <Loader className="mx-auto" />
                         :(
-                            payments?.historique.length >0 ?<div className="flex flex-col gap-3">
+                            payments?.historique ?<div className="flex flex-col gap-3">
                             <TrajetItem arrivée="Corniche" depart="Adjamé" durée="30min" />
                             <TrajetItem arrivée="Corniche" depart="Adjamé" durée="30min" />
                             <TrajetItem arrivée="Corniche" depart="Adjamé" durée="30min" />

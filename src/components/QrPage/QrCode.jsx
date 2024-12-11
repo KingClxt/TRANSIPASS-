@@ -21,8 +21,7 @@ export default function QRCodeScanner({ onResult }) {
 
       // Mettre à jour le dernier résultat
       setLastResult(decodedText)
-      console.log("redirection");
-      navgate('/dashboard')
+      
       
       // Appeler la fonction de callback
       onResult(decodedText)

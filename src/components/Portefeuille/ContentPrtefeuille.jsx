@@ -19,7 +19,7 @@ export const ContentPortefeuille = ()=>{
         <section className="container px-5 sm:px-10 mt-28 sm:mt-16">
             <div className="flex flex-col gap-4 h-full">
                 <CardSolde solde={solde} />
-                <RecentPayment isError={isError} payments={data} isLoading={isLoading} isPortefeuil />
+                <RecentPayment isError={isError} limit={3} payments={data?.recharges} isLoading={isLoading} isPortefeuil />
             </div>
         </section>
     )
