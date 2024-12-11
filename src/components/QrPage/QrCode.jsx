@@ -7,7 +7,7 @@ import { getTrajet, getTrajetById } from '../../api/endpoints/trajet'
 import { useSelector } from 'react-redux'
 import { getToken, getUser } from '../../selectors/userSelectors'
 import { postTicket } from '../../api/endpoints/ticket'
-import { Loader } from 'lucide-react'
+import { Loader } from '../Loader'
 
 export default function QRCodeScanner({ onResult }) {
 
@@ -191,6 +191,7 @@ const Modal = ({ isOpen, onClose, onValidate, ticketInfo }) => {
     mutationFn:(data)=>postTicket(data, token),
     onSuccess:(data)=>{
       onClose()
+      dispatch(Rechargement(data.solde))
       navigate('/dashboard')
     }
   })
