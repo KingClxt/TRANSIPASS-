@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { getTrajet, getTrajetById } from '../../api/endpoints/trajet'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getToken, getUser } from '../../selectors/userSelectors'
 import { postTicket } from '../../api/endpoints/ticket'
 import { Loader } from '../Loader'
@@ -179,6 +179,7 @@ export default function QRCodeScanner({ onResult, onClose }) {
 
 
 const Modal = ({ isOpen, onClose, onCloseQr, ticketInfo }) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const token = useSelector(getToken)
   const {id} = useSelector(getUser)
@@ -186,7 +187,7 @@ const Modal = ({ isOpen, onClose, onCloseQr, ticketInfo }) => {
     mutationFn:(data)=>postTicket(data, token),
     onSuccess:(data)=>{
       // onClose()
-      // dispatch(Rechargement(data.solde))
+      dispatch(Rechargement(data.solde))
       // onCloseQr()
       navigate('/dashboard/')
     }
