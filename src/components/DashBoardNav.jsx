@@ -11,6 +11,8 @@ import { persistor } from "../store"
 import { useNavigate } from "react-router-dom"
 
 
+// RECUPERATION DE L'UTILISATEUR
+const {nom, prenom} = useSelector(({userReducer})=>userReducer.usager)
 
 export const DashBoardNav = ()=>{
     const navigate = useNavigate()
@@ -30,8 +32,6 @@ export const DashBoardNav = ()=>{
         dispatch(Logout)
         navigate('/')
     }
-    // RECUPERATION DE L'UTILISATEUR
-    const {nom, prenom} = useSelector(({userReducer})=>userReducer.usager)
     return (
         <div className="relative">
             <ul className="flex fixed sm:relative z-50 items-center overflow-x-hidden shadow-md h-[4.5rem] w-full justify-between px-4 bg-white">
