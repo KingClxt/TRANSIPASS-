@@ -1,4 +1,4 @@
-import { Binary, CarIcon, ChartAreaIcon, Wallet } from "lucide-react"
+import { Binary, CarIcon, ChartAreaIcon, Loader, Wallet } from "lucide-react"
 import { CardInformation } from "./CardInformation"
 import { RecentTravel } from "./RecentTravel"
 import { RecentPayment } from "./RecentPayment"
@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query"
 import { getRecentPayment } from "../../api/endpoints/payment"
 import { getRecentTrajet } from "../../api/endpoints/travel"
 import { useNavigate } from "react-router-dom"
+import { getTicketById } from "../../api/endpoints/ticket"
 
 
 
@@ -27,8 +28,8 @@ export const DashboardBodyClient = ()=>{
 
     // FONCTION POUR FETCH LES PAYEMENTS
     const {data:travels, isLoading:travelLoading, isError:travelError} = useQuery({
-        queryKey:['trajet', id],
-        queryFn:()=>getRecentTrajet(id, token)
+        queryKey:['ticket', id],
+        queryFn:()=>getTicketById(id)
     })
 
     return (
@@ -47,7 +48,11 @@ export const DashboardBodyClient = ()=>{
                     <CarIcon />
                     <div>
                         <p>Nombre de voyage</p>
-                        <p>{travels?.historique && !travelLoading ?travels?.historique.length:0}</p>
+                        {
+                            travelLoading?<Loader />
+                            :
+                            <p>{travels?.tickets.length}</p>
+                        }
                     </div>
                 </CardInformation>
 

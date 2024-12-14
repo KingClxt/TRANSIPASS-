@@ -2,9 +2,9 @@ import { Loader } from "lucide-react"
 import { TrajetItem } from "./TrajetItem"
 
 
-export const RecentTrajets = ({text, payments, isLoading, isError})=>{
+export const RecentTrajets = ({text, tickets, isLoading, isError})=>{
     
-
+    
     return (
         <div className="p-5 border pt-0 shadow-lg w-full bg-white rounded-lg font-poppins">
             <h2 className="font-bold my-5 text-xl text-gray-600">{text}</h2>
@@ -16,12 +16,17 @@ export const RecentTrajets = ({text, payments, isLoading, isError})=>{
                         ?
                         <Loader className="mx-auto" />
                         :(
-                            payments?.historique ?<div className="flex flex-col gap-3">
-                            <TrajetItem arrivée="Corniche" depart="Adjamé" durée="30min" />
-                            <TrajetItem arrivée="Corniche" depart="Adjamé" durée="30min" />
-                            <TrajetItem arrivée="Corniche" depart="Adjamé" durée="30min" />
-                        </div>
-                        :null
+                            tickets?.tickets.length > 0 ?(
+                                <ul className="space-y-3">
+                                    {
+                                        tickets?.tickets.map(ticket=><TrajetItem 
+                                                                            arrivée={ticket.trajet.gareDepart.nom}
+                                                                            depart={ticket.trajet.gareArrivee.nom}
+                                                                            />)
+                                    }
+                                </ul>
+                            )
+                            :<p className="text-center py-3 font-bold text-gray-700">Vous n'avez fait aucune course</p>
                         )
             }
             

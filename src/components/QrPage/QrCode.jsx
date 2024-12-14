@@ -211,7 +211,6 @@ const Modal = ({ isOpen, onClose, onCloseQr, ticketInfo }) => {
           <div className="space-y-4">
             <div>
               <p className="text-gray-600">Gare de départ:</p>
-              <p className="font-semibold">{ticketInfo?._id}</p>
               <p className="font-semibold">{ticketInfo?.gareDepart.nom}</p>
             </div>
             

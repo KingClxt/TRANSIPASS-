@@ -14,10 +14,11 @@ import { ConnexionAdmin } from "../pages/ConnexionAdmin";
 import Verification from "../components/Verification/Verification";
 import Trajet from "../components/trajets/Trajet";
 import Arret from "../components/Arret/Arret";
+import PageAccueil from "../pages/pageAccueil/PageAccueil";
 export const routes = [
     {
         path:'/',
-        element:<Index />
+        element:<PageAccueil />
     },
     {
         path:'/signin',

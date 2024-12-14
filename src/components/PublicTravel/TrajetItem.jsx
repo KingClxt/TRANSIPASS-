@@ -3,15 +3,15 @@ import { ArrowDown, ArrowRight, BusFront, Calendar, Calendar1Icon, CarFront, Hou
 export const TrajetItem = ({depart, arrivée, durée})=>{
     return (
         <div className="border-2  rounded flex justify-between px-3 py-2">
-            <div className="flex flex-col gap-2">
-                <div className="flex  items-center gap-2 font-semibold justify-center">
-                    <p className="flex gap-2 items-center text-gray-700">
-                    <BusFront className="text-[#5D5FEF]" /> {depart}
+            <div className="flex w-2/3 flex-col gap-2">
+                <div className="flex items-center gap-2 font-semibold ">
+                    <p className="flex  gap-2 w-1/3 items-center text-gray-700">
+                        <BusFront className="text-[#5D5FEF]" /> {depart}
                     </p>
-                    <div className="w-full  flex justify-center">
+                    <div className="w-1/4  flex justify-center">
                         <ArrowRight className="text-gray-900" />
                     </div>
-                    <p className="text-gray-700">
+                    <p className=" text-gray-700">
                         {arrivée}
                     </p>
                 </div>
