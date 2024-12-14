@@ -107,7 +107,7 @@ const DropNav = ({toggleMenu, isOpen, openNav, logout})=>{
                         <User2Icon />
                     </div>
                     <p>
-                        KingClxt
+                        {`${nom} ${prenom}`}
                     </p>
                    
             </li>
