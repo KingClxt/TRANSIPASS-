@@ -11,10 +11,10 @@ import { persistor } from "../store"
 import { useNavigate } from "react-router-dom"
 
 
-// RECUPERATION DE L'UTILISATEUR
-const {nom, prenom} = useSelector(({userReducer})=>userReducer.usager)
 
 export const DashBoardNav = ()=>{
+    // RECUPERATION DE L'UTILISATEUR
+    const {nom, prenom} = useSelector(({userReducer})=>userReducer.usager)
     const navigate = useNavigate()
     
     const [isOpen, setOpen] = useState(false)
@@ -87,7 +87,7 @@ export const DashBoardNav = ()=>{
                 <div className="flex justify-center">
                     <AnimatePresence>
                     {
-                        openNav && <DropNav logout={logout} openNav={openNav} toggleMenu={toggleMenu} isOpen={isOpen} />
+                        openNav && <DropNav nom={nom} prenom={prenom} logout={logout} openNav={openNav} toggleMenu={toggleMenu} isOpen={isOpen} />
                     }
                     </AnimatePresence>
                 </div>
@@ -95,7 +95,7 @@ export const DashBoardNav = ()=>{
     )   
 }
 
-const DropNav = ({toggleMenu, isOpen, openNav, logout})=>{
+const DropNav = ({toggleMenu, isOpen, openNav, logout, nom, prenom})=>{
     return (
         <motion.ul 
             exit={{opacity:0, y:-25}}
